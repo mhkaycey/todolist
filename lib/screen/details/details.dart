@@ -177,13 +177,16 @@ class Details extends StatelessWidget {
                     ),
                   ),
                   const SizedBox(height: 20),
-                  const Center(
+                  Obx(
+                    () => Center(
                       child: Text(
-                    "COMPLETED",
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
+                        "COMPLETED (${controller.doneTodos.length})",
+                        style: const TextStyle(
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
                     ),
-                  )),
+                  ),
                   DoneList(),
                 ],
               )
