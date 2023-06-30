@@ -13,7 +13,7 @@ class Tile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var total = controller.doingTodos.length + controller.doingTodos.length;
+    var total = controller.doneTodos.length + controller.doingTodos.length;
     var current = controller.doneTodos.length;
 
     var precent = (current / total * 100).toStringAsFixed(0);
@@ -33,7 +33,7 @@ class Tile extends StatelessWidget {
         width: 80,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(20),
-          color: Colors.white,
+          color: Colors.brown[200],
         ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -48,12 +48,13 @@ class Tile extends StatelessWidget {
                 ),
               ),
               child: Padding(
-                padding: const EdgeInsets.all(15),
+                padding: const EdgeInsets.all(10),
                 child: Expanded(
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Row(
+                        // mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Container(
                             decoration: BoxDecoration(
@@ -67,7 +68,13 @@ class Tile extends StatelessWidget {
                                 color: controller.getBGClr(task.color ?? 0),
                               ),
                             ),
-                          )
+                          ),
+                          const Spacer(),
+                          IconButton(
+                              onPressed: () {
+                                controller.deleteTask(task);
+                              },
+                              icon: const Icon(Icons.more_vert))
                         ],
                       ),
                       const SizedBox(height: 7),
@@ -91,56 +98,65 @@ class Tile extends StatelessWidget {
                 ),
               ),
             ),
-            // const SizedBox(height: 20),
-            StepProgressIndicator(
-              totalSteps: controller.isTodoEmpty(task) ? 1 : task.todos!.length,
-              currentStep: controller.isTodoEmpty(task)
-                  ? 0
-                  : controller.getDoneTodo(task),
-              size: 5,
-              padding: 0,
-              selectedGradientColor: const LinearGradient(
-                begin: Alignment.topLeft,
-                end: Alignment.bottomRight,
-                colors: [
-                  Colors.blue,
-                  Colors.grey,
-                ],
-              ),
-              unselectedGradientColor: const LinearGradient(
-                begin: Alignment.topLeft,
-                end: Alignment.bottomRight,
-                colors: [Colors.white, Colors.white],
+            const SizedBox(height: 5),
+            const Padding(
+              padding: EdgeInsets.only(left: 5.0),
+              child: Text("Progress.."),
+            ),
+            const SizedBox(height: 5),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 10),
+              child: StepProgressIndicator(
+                totalSteps:
+                    controller.isTodoEmpty(task) ? 1 : task.todos!.length,
+                currentStep: controller.isTodoEmpty(task)
+                    ? 0
+                    : controller.getDoneTodo(task),
+                size: 5,
+                padding: 0,
+                selectedGradientColor: const LinearGradient(
+                  begin: Alignment.topLeft,
+                  end: Alignment.bottomRight,
+                  colors: [
+                    Colors.black,
+                    Colors.black,
+                  ],
+                ),
+                unselectedGradientColor: LinearGradient(
+                  begin: Alignment.topLeft,
+                  end: Alignment.bottomRight,
+                  colors: [Colors.brown.shade200, Colors.white],
+                ),
               ),
             ),
 
-            UnconstrainedBox(
-              child: SizedBox(
-                width: 50,
-                height: 50,
-                child: CircularStepProgressIndicator(
-                  stepSize: 5,
-                  selectedColor: controller.getBGClr(task.color ?? 0),
-                  unselectedColor: Colors.black,
-                  padding: 0,
-                  width: 150,
-                  height: 150,
-                  selectedStepSize: 5,
-                  roundedCap: (_, __) => true,
-                  totalSteps:
-                      controller.isTodoEmpty(task) ? 1 : task.todos!.length,
-                  currentStep: controller.isTodoEmpty(task)
-                      ? 0
-                      : controller.getDoneTodo(task),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text('${total == 0 ? 0 : precent}%'),
-                    ],
-                  ),
-                ),
-              ),
-            )
+            // UnconstrainedBox(
+            //   child: SizedBox(
+            //     width: 50,
+            //     height: 50,
+            //     child: CircularStepProgressIndicator(
+            //       stepSize: 5,
+            //       selectedColor: controller.getBGClr(task.color ?? 0),
+            //       unselectedColor: Colors.black,
+            //       padding: 0,
+            //       width: 150,
+            //       height: 150,
+            //       selectedStepSize: 5,
+            //       roundedCap: (_, __) => true,
+            //       totalSteps:
+            //           controller.isTodoEmpty(task) ? 1 : task.todos!.length,
+            //       currentStep: controller.isTodoEmpty(task)
+            //           ? 0
+            //           : controller.getDoneTodo(task),
+            //       child: Column(
+            //         mainAxisAlignment: MainAxisAlignment.center,
+            //         children: [
+            //           Text('${total == 0 ? 0 : precent}%'),
+            //         ],
+            //       ),
+            //     ),
+            //   ),
+            // )
           ],
         ),
       ),

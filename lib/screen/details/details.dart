@@ -138,8 +138,16 @@ class Details extends StatelessWidget {
                                   var succsess = controller
                                       .addTodo(controller.editCtrl.text);
                                   if (succsess) {
-                                    Get.snackbar("Success",
-                                        "Todo item added successfully");
+                                    Get.snackbar("", "",
+                                        titleText: const Text(
+                                          "Success",
+                                          style: TextStyle(
+                                            color: Colors.green,
+                                          ),
+                                        ),
+                                        messageText: const Text(
+                                          "Todo item added successfully",
+                                        ));
                                     // EasyLoading.showSuccess(
                                     //     "Todo item added successfully");
                                   } else {
