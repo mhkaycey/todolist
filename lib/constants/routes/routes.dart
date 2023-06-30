@@ -15,7 +15,7 @@ class PageRoutes {
     ),
     GetPage(
       name: PageName.homepage,
-      page: () => const HomePage(),
+      page: () => HomePage(),
       binding: HomepageBinding(),
     ),
     GetPage(

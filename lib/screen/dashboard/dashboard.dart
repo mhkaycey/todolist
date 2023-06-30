@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:mytodo/constants/color/color.dart';
 import 'package:mytodo/constants/icons/get_icons.dart';
+import 'package:mytodo/constants/model/task.dart';
 import 'package:mytodo/screen/dashboard/controller.dart';
 import 'package:mytodo/screen/home/homepage.dart';
 import 'package:mytodo/screen/report/index.dart';
@@ -30,9 +31,9 @@ class _DashBoardState extends State<DashBoard> {
         body: SafeArea(
           child: IndexedStack(
             index: controller.navIndex.value,
-            children: const [
+            children: [
               HomePage(),
-              ReportPage(),
+              const ReportPage(),
             ],
           ),
         ),
@@ -94,7 +95,19 @@ class _DashBoardState extends State<DashBoard> {
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(20)),
                         maximumSize: const Size(200, 40)),
-                    onPressed: () {},
+                    onPressed: () {
+                      if (controller.formKey.currentState!.validate()) {
+                        int icon =
+                            icons[controller.chipIndex.value].icon!.codePoint;
+                        var task = Task(
+                          title: controller.editCtrl.text,
+                          icon: icon,
+                          color: controller.selectedColor(),
+                        );
+                        Get.back();
+                        controller.addTask(task);
+                      }
+                    },
                     child: const Text("Create"),
                   )
                 ],
