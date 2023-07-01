@@ -21,10 +21,6 @@ class DashBoardController extends GetxController {
   final tasks = <Task>[].obs;
   final deleting = false.obs;
 
-  void selectNavIndex(int index) {
-    navIndex.value = index;
-  }
-
   @override
   void onInit() {
     super.onInit();
