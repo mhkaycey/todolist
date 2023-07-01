@@ -74,7 +74,7 @@ class Tile extends StatelessWidget {
                               onPressed: () {
                                 controller.deleteTask(task);
                               },
-                              icon: const Icon(Icons.more_vert))
+                              icon: const Icon(Icons.delete))
                         ],
                       ),
                       const SizedBox(height: 7),
@@ -119,13 +119,16 @@ class Tile extends StatelessWidget {
                   end: Alignment.bottomRight,
                   colors: [
                     Colors.black,
-                    Colors.black,
+                    Colors.black12,
                   ],
                 ),
                 unselectedGradientColor: LinearGradient(
                   begin: Alignment.topLeft,
                   end: Alignment.bottomRight,
-                  colors: [Colors.brown.shade200, Colors.white],
+                  colors: [
+                    Colors.brown.shade200,
+                    Colors.brown.shade200,
+                  ],
                 ),
               ),
             ),
