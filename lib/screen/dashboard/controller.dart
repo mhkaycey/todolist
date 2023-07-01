@@ -1,18 +1,18 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:mytodo/constants/color/color.dart';
-import 'package:mytodo/constants/model/task.dart';
+import 'package:mytodo/core/color/color.dart';
+import 'package:mytodo/data/model/task.dart';
 
-import 'package:mytodo/constants/services/repository.dart';
+import 'package:mytodo/data/services/repository.dart';
 
 class DashBoardController extends GetxController {
   TaskRepository taskRepository;
   DashBoardController({required this.taskRepository});
+
   final navIndex = 0.obs;
   final formKey = GlobalKey<FormState>();
   final editCtrl = TextEditingController();
-
   final chipIndex = 0.obs;
   final selectedColor = 0.obs;
   final task = Rx<Task?>(null);
@@ -37,6 +37,10 @@ class DashBoardController extends GetxController {
 
   void changeChipIndex(int value) {
     chipIndex.value = value;
+  }
+
+  void selectNavIndex(int index) {
+    navIndex.value = index;
   }
 
   void changeDeleting(bool value) {

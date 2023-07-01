@@ -1,5 +1,5 @@
-import 'package:mytodo/constants/model/task.dart';
-import 'package:mytodo/constants/services/provider.dart';
+import 'package:mytodo/data/model/task.dart';
+import 'package:mytodo/data/services/provider.dart';
 
 class TaskRepository {
   TaskProvider taskProvider;

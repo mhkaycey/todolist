@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:mytodo/constants/model/task.dart';
+import 'package:mytodo/data/model/task.dart';
 import 'package:mytodo/screen/dashboard/controller.dart';
 import 'package:mytodo/screen/details/details.dart';
 import 'package:step_progress_indicator/step_progress_indicator.dart';
@@ -74,7 +74,10 @@ class Tile extends StatelessWidget {
                               onPressed: () {
                                 controller.deleteTask(task);
                               },
-                              icon: const Icon(Icons.delete))
+                              icon: const Icon(
+                                Icons.delete,
+                                color: Colors.black,
+                              ))
                         ],
                       ),
                       const SizedBox(height: 7),

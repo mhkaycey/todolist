@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:mytodo/constants/color/color.dart';
-import 'package:mytodo/constants/icons/get_icons.dart';
-import 'package:mytodo/constants/model/task.dart';
+import 'package:mytodo/core/color/color.dart';
+import 'package:mytodo/core/icons/get_icons.dart';
+import 'package:mytodo/data/model/task.dart';
 import 'package:mytodo/screen/dashboard/controller.dart';
 import 'package:mytodo/screen/home/homepage.dart';
 import 'package:mytodo/screen/report/index.dart';

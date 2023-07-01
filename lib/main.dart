@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
-import 'package:mytodo/constants/routes/index.dart';
-import 'package:mytodo/constants/services/services.dart';
+import 'package:mytodo/core/routes/index.dart';
+import 'package:mytodo/data/services/services.dart';
 
 void main() async {
   await GetStorage.init();

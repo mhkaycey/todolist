@@ -1,6 +1,6 @@
 import 'package:get/get.dart';
-import 'package:mytodo/constants/services/provider.dart';
-import 'package:mytodo/constants/services/repository.dart';
+import 'package:mytodo/data/services/provider.dart';
+import 'package:mytodo/data/services/repository.dart';
 
 import 'index.dart';
 
