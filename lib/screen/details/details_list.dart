@@ -122,20 +122,6 @@ class DoingList extends StatelessWidget {
                                           onPressed: () {
                                             if (homeCtrl.formKey.currentState!
                                                 .validate()) {
-                                              //var succsess =
-                                              homeCtrl.updateTask(
-                                                  element['title'],
-                                                  updateCtrl.text);
-                                              // if (succsess) {
-                                              //   Get.snackbar("Success",
-                                              //       "Todo item added successfully");
-                                              //   // EasyLoading.showSuccess(
-                                              //   //     "Todo item added successfully");
-                                              // } else {
-                                              //   Get.snackbar("An Error Occured",
-                                              //       "Item already exist");
-                                              //   // EasyLoading.showError("Item already exist");
-                                              // }
                                               updateCtrl.clear();
                                             }
                                           },

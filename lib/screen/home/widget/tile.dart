@@ -41,7 +41,7 @@ class Tile extends StatelessWidget {
             Container(
               height: 120,
               decoration: BoxDecoration(
-                color: controller.getBGClr(task.color ?? 0),
+                color: controller.getBGClr(task.color),
                 borderRadius: const BorderRadius.only(
                   topLeft: Radius.circular(20),
                   topRight: Radius.circular(20),
@@ -65,7 +65,7 @@ class Tile extends StatelessWidget {
                               child: Icon(
                                 IconData(task.icon,
                                     fontFamily: 'MaterialIcons'),
-                                color: controller.getBGClr(task.color ?? 0),
+                                color: controller.getBGClr(task.color),
                               ),
                             ),
                           ),

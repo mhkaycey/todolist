@@ -54,7 +54,7 @@ class Details extends StatelessWidget {
                               task!.icon,
                               fontFamily: 'MaterialIcons',
                             ),
-                            color: controller.getBGClr(task.color ?? 0),
+                            color: controller.getBGClr(task.color),
                           ),
                           const SizedBox(width: 20),
                           Text(
@@ -96,7 +96,7 @@ class Details extends StatelessWidget {
                                     begin: Alignment.topLeft,
                                     end: Alignment.bottomRight,
                                     colors: [
-                                      controller.getBGClr(task.color ?? 0),
+                                      controller.getBGClr(task.color),
                                       Colors.grey
                                     ]),
                                 unselectedGradientColor: LinearGradient(
